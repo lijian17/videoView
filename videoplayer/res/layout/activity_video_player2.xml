@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/video_layout"
     android:layout_width="match_parent"
-    android:layout_height="240dp">
+    android:layout_height="240dp" >
 
-    <com.yitong.simpleviewplayer.widget.CustomVideoView
+    <net.dxs.videoplayer.widget.CustomVideoView
         android:id="@+id/videoView"
         android:layout_width="match_parent"
-        android:layout_height="240dp"/>
+        android:layout_height="240dp" />
 
-    <include layout="@layout/center_progress"/>
+    <include layout="@layout/center_progress" />
 
     <LinearLayout
         android:id="@+id/control_ll"
@@ -20,7 +19,7 @@
         android:layout_gravity="bottom"
         android:background="#f0494444"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="gone" >
 
         <SeekBar
             android:id="@+id/play_seekbar"
@@ -32,11 +31,11 @@
             android:max="100"
             android:progress="20"
             android:progressDrawable="@drawable/seekbar_style2"
-            android:thumb="@null"/>
+            android:thumb="@null" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" >
 
             <ImageView
                 android:id="@+id/pause_iv"
@@ -46,7 +45,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
                 android:clickable="true"
-                android:src="@drawable/play_btn_style"/>
+                android:src="@drawable/play_btn_style" />
 
             <TextView
                 android:id="@+id/cur_time_tv"
@@ -59,7 +58,7 @@
                 android:layout_toRightOf="@id/pause_iv"
                 android:text="00:00:00"
                 android:textColor="#ffffff"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/flat_tv"
@@ -72,7 +71,7 @@
                 android:layout_toRightOf="@id/cur_time_tv"
                 android:text="/"
                 android:textColor="#ffffff"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/total_time_tv"
@@ -85,7 +84,7 @@
                 android:layout_toRightOf="@id/flat_tv"
                 android:text="00:00:00"
                 android:textColor="#ffc502"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <ImageView
                 android:id="@+id/screen_iv"
@@ -96,7 +95,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
-                android:src="@drawable/full_screen"/>
+                android:src="@drawable/full_screen" />
 
             <SeekBar
                 android:id="@+id/volume_seekbar"
@@ -114,7 +113,7 @@
                 android:progress="10"
                 android:progressDrawable="@drawable/seekbar_style"
                 android:thumb="@null"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <ImageView
                 android:id="@+id/volume_iv"
@@ -124,9 +123,8 @@
                 android:layout_toLeftOf="@id/volume_seekbar"
                 android:layout_toStartOf="@id/volume_seekbar"
                 android:src="@drawable/volume"
-                android:visibility="gone"/>
-
+                android:visibility="gone" />
         </RelativeLayout>
     </LinearLayout>
-</RelativeLayout>
 
+</RelativeLayout>
