@@ -36,10 +36,15 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
+/**
+ * 自定义视频播放器
+ * 
+ * @author lijian
+ * @date 2017-7-1 上午10:45:00
+ */
 public class VideoPlayerActivity2 extends Activity implements
 		OnPreparedListener, OnClickListener, OnSeekBarChangeListener,
 		OnTouchListener {
-
 	private static final String TAG = "VideoPlayerActivity2";
 
 	private CustomVideoView videoView;
@@ -191,7 +196,7 @@ public class VideoPlayerActivity2 extends Activity implements
 			handler = null;
 		}
 		if (mVolumeReceiver != null) {
-			unregisterReceiver(mVolumeReceiver);// 解注册
+			unregisterReceiver(mVolumeReceiver);// 注销广播监听
 		}
 	}
 
@@ -241,7 +246,9 @@ public class VideoPlayerActivity2 extends Activity implements
 		videoView.setLayoutParams(params1);
 	}
 
-	// 隐藏SystemUi
+	/**
+	 * 隐藏SystemUi
+	 */
 	private void setSystemUiHide() {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 			View decorView = getWindow().getDecorView();
@@ -254,7 +261,9 @@ public class VideoPlayerActivity2 extends Activity implements
 		}
 	}
 
-	// 显示SystemUi
+	/**
+	 * 显示SystemUi
+	 */
 	private void setSystemUiShow() {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 			View decorView = getWindow().getDecorView();
@@ -262,7 +271,12 @@ public class VideoPlayerActivity2 extends Activity implements
 		}
 	}
 
-	// 格式化时间，并显示textView上
+	/**
+	 * 格式化时间，并显示textView上
+	 * 
+	 * @param tv
+	 * @param millisecond
+	 */
 	private void updateTimeFormat(TextView tv, int millisecond) {
 		int s = millisecond / 1000;
 		int hour = s / 3600;
@@ -297,10 +311,7 @@ public class VideoPlayerActivity2 extends Activity implements
 		}
 	}
 
-	/*
-	 * ====================seekBar的重载方法
-	 * start=====================================
-	 */
+	/* ====================seekBar的重载方法 start================================== */
 	@Override
 	public void onProgressChanged(SeekBar seekBar, int progress,
 			boolean fromUser) {
@@ -406,7 +417,11 @@ public class VideoPlayerActivity2 extends Activity implements
 		return true;
 	}
 
-	// 调节亮度
+	/**
+	 * 调节亮度
+	 * 
+	 * @param offset
+	 */
 	private void changeBrightness(float offset) {
 		WindowManager.LayoutParams attributes = getWindow().getAttributes();
 		float brightness = attributes.screenBrightness;
@@ -428,7 +443,11 @@ public class VideoPlayerActivity2 extends Activity implements
 		ivOperationPercentImg.setLayoutParams(params);
 	}
 
-	// 改变音量
+	/**
+	 * 改变音量
+	 * 
+	 * @param offset
+	 */
 	private void changeVolume(float offset) {
 		int max = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
 		int cur = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
@@ -448,7 +467,12 @@ public class VideoPlayerActivity2 extends Activity implements
 		ivOperationPercentImg.setLayoutParams(params);
 	}
 
-	// 音量的广播接收者，接收系统音量发生变化
+	/**
+	 * 音量的广播接收者，接收系统音量发生变化
+	 * 
+	 * @author lijian
+	 * @date 2017-7-1 下午2:34:40
+	 */
 	private class VolumeReceiver extends BroadcastReceiver {
 
 		@Override
@@ -467,7 +491,9 @@ public class VideoPlayerActivity2 extends Activity implements
 		}
 	}
 
-	// 返回事件
+	/**
+	 * Back键
+	 */
 	@Override
 	public void onBackPressed() {
 		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
